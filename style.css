@@ -1,0 +1,374 @@
+/* Сделать тень плеера
+    изменение статуса кнопки play при нажатии на stop
+сделать точку на line
+сделать список треков
+поялвение обложки при выборе трека
+сделать меня для выбора трека
+кнопка автопроигрывание(заново каждый раз)
+progressbar volume
+
+*/
+
+* {
+    box-sizing:border-box ;
+
+
+}
+
+p, span{ 
+    margin-top: 0 ;
+}
+
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 39, 55);
+
+}
+
+
+
+.box {
+    position: relative;
+    top: calc(50vh - 235px);
+    width: 350px;
+    height: 470px;
+    background-color: rgba(112, 66, 126, 0.401);
+    filter: blur();
+    
+    border-radius: 30px;
+    box-shadow: rgb(214, 86, 205) 0px  30px 50px -10px;
+                    
+
+
+}
+
+.nowPlaying, .nowPlayingTrack{
+    text-align: center;
+    width: 150px;
+    
+    
+    color:rgb(211, 162, 227);
+    font-size: 13px;
+}
+
+.nowPlayingTrack {
+    height: 35px;
+    overflow: hidden;
+    
+}
+
+.wrapper-header {
+    
+    position: relative;
+    
+    margin-top: 15px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+    margin-bottom: -20px;
+    
+}
+
+.blist {
+    width: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+
+
+}
+
+
+.box .imgAudio__container {
+    width: 200px;
+    height: 200px;
+    border: 2px  solid rgb(125, 49, 138);
+    margin-top: 20px;
+    margin-left: 75px;
+    border-radius: 10%;
+    box-shadow: rgba(107, 45, 99, 0.6) 7px 13px 15px; 
+    background-image: url('imgAudio/GONE.Fludd - ВТОРНИК.jpg');
+    background-size: cover;
+    background-position: center;
+
+    
+
+}
+
+
+.NameOfTrack,
+.NameOfArtist
+{
+    
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 18px;
+    
+font-size: 28px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+text-shadow: 2px 1px 5px rgba(232, 98, 125, 0.355);
+color:rgb(211, 162, 227);
+
+}
+
+
+
+.NameOfArtist {
+    font-size: 15px;
+    text-shadow: 2px 1px 5px #000;
+    opacity: 0.8;
+}
+
+
+
+
+.timeAndBar {
+
+    display: flex;
+    
+    justify-content: center;
+}
+
+.onlybar {
+    
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+   
+
+
+.line {
+    width: 100%;
+    cursor: pointer;
+    
+    
+}
+.NowTime,
+.FullTime{
+    padding: 7px;
+    padding-top: 7px;
+    color: rgb(211, 162, 227);
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 0px 2px 2px black;
+}
+
+
+.buttons {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    
+}
+
+.imgbut,
+.volumeImg {
+    max-width: 100%;
+}
+.prev {
+    width: 35px;
+    cursor: pointer;
+}
+.playNow {
+    width: 45px;
+    
+    cursor: pointer;
+}
+.next {
+    width: 35px;
+    cursor: pointer;
+}
+
+.repeat {
+    width: 30px;
+    cursor: pointer;
+    margin-right: 30px;
+    border-radius: 100% ;
+    /*box-shadow: rgb(214, 86, 205) 0px 0px 10px 5px;
+    background-color: rgb(214, 86, 205) ;*/
+    
+}
+
+
+
+.randomtrack {
+    width: 30px;
+    cursor: pointer;
+    margin-left: 30px ;
+    border-radius: 100% ;
+    /*box-shadow: rgb(214, 86, 205) 0px 0px 10px 5px;
+    background-color: rgb(214, 86, 205) ;*/
+}
+
+.volume {
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 10px;
+}
+
+.volumeBtn {
+    width: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.volumeBar {
+    cursor: pointer;
+}
+
+
+input[type=range]{
+    -webkit-appearance: none;   
+    background-color: rgba(240, 248, 255, 0);
+    
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100px;
+    height: 5px;
+    background: rgb(119, 227, 229);
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    border: 2px solid black ;
+    border-radius: 50%;
+    background: rgb(240, 228, 54);
+    margin-top: -3px;
+}
+
+.music-list {
+    position: absolute;
+    top: 55px;  
+    left: 0;
+    height: 300px;
+    background-color: rgb(150, 81, 171);
+    box-shadow :rgb(133, 27, 169) 0px  30px 50px -10px;
+    width: 100%;
+    border-radius: 30px ;
+    padding: 10px 10px;
+    display: none;
+    
+    
+    
+}
+
+.wrapper-list {
+
+overflow-y: scroll;
+height: 250px;
+
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+
+    
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: darkgrey;
+    border-radius: 5px;
+    
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+    border-radius: 2px;
+  }
+
+ .header, .music-list ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.row {
+    z-index: 0;
+    height: 45px;
+    margin-left: 5px;
+    padding-top: 2px;
+    text-shadow: 1px 1px 10px rgba(41, 18, 23, 0.796);
+}
+
+.row2 {
+    display: flex;
+    align-items: center;
+}
+
+.music-list ul li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.441); 
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: -20px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: rgba(85, 231, 141, 0.871);
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    
+
+    }
+
+    .music-list ul li:last-child {
+        border-bottom: 0;
+        
+    }
+    .music-list ul li:first-child {
+        
+        background-color: #ab2c4ed4;
+        
+    }
+p {
+    font-size: 13px;
+    margin-top: 4px;
+    opacity: 0.8;
+    z-index: 1;
+    
+}
+
+li {
+ 
+    z-index: 10;
+}
+
+ul li .audio-duration {
+    font-size: 15px;
+}
+
+
+
+.blist2 {
+    width: 30px;
+    display: inline-block;
+    
+    
+    
+}
+.header {
+    margin-left: 20px;
+    margin-bottom: -5px;
+}
+
+#ms {
+    color: rgb(73, 173, 183);
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    text-shadow: 2px 2px 1px rgba(40, 9, 15, 0.355);
+}

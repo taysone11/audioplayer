@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myTay</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="box">
+        <div class="wrapper-header">
+            <div class="nowPlaying" id="nowPlaying">Now playing:</div>
+            <div class="nowPlayingTrack" id="nowPlayingTrack"></div>
+        </div>
+        <div class="blist">
+            <img src="buttons/list.png" class="imgbut" id="blist">
+        </div>
+        <div class="imgAudio__container" ></div>
+        <div class="NameOfTrack">Some name</div>
+        <div class="NameOfArtist">Some name</div>
+        
+        
+        
+
+        
+        <div class="timeAndBar">
+            <div class="NowTime" >00:00 </div>
+    
+        <div class="onlybar">
+            <input type="range" min="0" max="100" value="0" class="line" onchange="seekTo()">
+        </div>
+        <div class="FullTime" >00:00</div>
+    </div>
+
+        <div class="buttons">
+            
+            <div class="randomtrack" id="randomtrack">
+                <img src="buttons/random.png" class="imgbut" id="randomtr">
+            </div>
+            <div class="prev">
+                <img src="buttons/prev.png" class="imgbut" id="prev">
+            </div>
+            <div class="playNow">
+                <img src="buttons/play.png"  class="imgbut" id="play">
+            </div>
+            <div class="next">
+                <img src="buttons/next.png" class="imgbut" id="next">
+            </div> 
+            <div class="repeat" id="repeat">
+                <img src="buttons/repeat.png" class="imgbut" id="repeat">
+            </div>
+        </div>
+
+        <div class="volume">
+            <div class="volumeBtn" >
+                <img src="buttons/volume-on.png" alt="" class="volumeImg">
+            </div>
+            <input type="range" min="0" max="100" value="1" class="volumeBar" onchange="setVolume()">
+            </div> 
+
+        <div class="music-list" id="music-list">
+            <div class="header">
+                <div class="row2">
+                    <div class="blist2">
+                        <img src="buttons/list.png" class="imgbut" id="blist2">
+                        
+                    </div>
+                    <span id="ms">MUSIC LIST</span>
+                </div>
+
+
+            </div>
+        <div class="wrapper-list">
+        <ul id="list">
+        </ul>
+    </div>
+
+</div>
+
+    
+    <script src="main.js"></script>
+</body>
+</html>
